@@ -43,12 +43,12 @@ main:
     # eax это b_size
 	mov	eax, DWORD PTR -84[rbp]  # b_size = argc
 	sub	eax, DWORD PTR -52[rbp]  # b_size -= last_pos_index
-	mov	DWORD PTR -64[rbp], eax  # 
-	mov	eax, DWORD PTR -64[rbp]
-	movsx	rdx, eax
-	sub	rdx, 1
-	mov	QWORD PTR -72[rbp], rdx
-	movsx	rdx, eax
+	mov	DWORD PTR -64[rbp], eax  # -64[rbp] = b_size
+	mov	eax, DWORD PTR -64[rbp]  # eax = -64[rbp]
+	movsx	rdx, eax  # rdx = eax с сохранением знака
+	sub	rdx, 1  # rdx -= 1
+	mov	QWORD PTR -72[rbp], rdx  # -72[rbp]
+	movsx	rdx, eax  # rdx = eax с сохранением знака
 	mov	r14, rdx
 	mov	r15d, 0
 	movsx	rdx, eax
