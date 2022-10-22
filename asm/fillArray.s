@@ -11,11 +11,11 @@ fillArray:
 	.cfi_offset 6, -16
 	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	mov	QWORD PTR -24[rbp], rdi
-	mov	QWORD PTR -32[rbp], rsi
-	mov	DWORD PTR -36[rbp], edx
-	mov	DWORD PTR -40[rbp], ecx
-	mov	DWORD PTR -4[rbp], 0
+	mov	QWORD PTR -24[rbp], rdi  # int *a
+	mov	QWORD PTR -32[rbp], rsi  # int *b
+	mov	DWORD PTR -36[rbp], edx  # int length
+	mov	DWORD PTR -40[rbp], ecx  # int first_neg_ind
+	mov	DWORD PTR -4[rbp], 0 # i = 0
 	jmp	.L2
 .L3:
 	mov	edx, DWORD PTR -40[rbp]
