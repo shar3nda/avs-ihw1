@@ -14,13 +14,10 @@ main:
 	push	r12
 	push	rbx
 	sub	rsp, 88
-	mov	rax, rsp
-	mov	rbx, rax
+	mov	rbx, rsp
 	mov	DWORD PTR -92[rbp], 0
-	lea	rax, -92[rbp]
-	mov	rsi, rax
-	lea	rax, .LC0[rip]
-	mov	rdi, rax
+	lea	rsi, -92[rbp]
+	lea	rdi, .LC0[rip]
 	mov	eax, 0
 	call	__isoc99_scanf@PLT
 	mov	eax, DWORD PTR -92[rbp]
@@ -33,7 +30,6 @@ main:
 	movsx	rdx, eax
 	mov	QWORD PTR -128[rbp], rdx
 	mov	QWORD PTR -120[rbp], 0
-	cdqe
 	lea	rdx, 0[0+rax*4]
 	mov	eax, 16
 	sub	rax, 1
@@ -87,13 +83,10 @@ main:
 	lea	ecx, 1[rax]
 	mov	edx, DWORD PTR -72[rbp]
 	mov	rsi, QWORD PTR -88[rbp]
-	mov	rax, QWORD PTR -64[rbp]
-	mov	rdi, rax
+	mov	rdi, QWORD PTR -64[rbp]
 	call	fillArray@PLT
-	mov	edx, DWORD PTR -72[rbp]
-	mov	rax, QWORD PTR -88[rbp]
-	mov	esi, edx
-	mov	rdi, rax
+	mov	esi, DWORD PTR -72[rbp]
+	mov	rdi, QWORD PTR -88[rbp]
 	call	printArray@PLT
 	mov	eax, 0
 	mov	rsp, rbx
