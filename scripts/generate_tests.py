@@ -12,10 +12,11 @@ def get_b(a):
 
 
 for i in range(1, 101):
-    a = [randint(-2, 10) for _ in range(10)]
+    test_length = randint(5, 15)
+    a = [randint(-2, 10) for _ in range(test_length)]
     b = get_b(a)
     with open(f"tests/{i}.in", 'w') as infile:
-        infile.write('10\n')
+        infile.write(f'{test_length}\n')
         infile.write(' '.join(str(x) for x in a))
     with open(f"tests/{i}.out", 'w') as outfile:
         outfile.write(' '.join(str(x) for x in b))
