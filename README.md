@@ -35,7 +35,7 @@
 ## Опции компиляции
 Ассемблирование без оптимизаций:
 ```sh
-gcc -masm=intel ./file.c -S -o ./file.s
+gcc -masm=intel ./file.c -S -o ./asm/file.s
 ```
 Ассемблирование с оптимизациями:
 ```sh
