@@ -12,3 +12,5 @@
 * [tests](https://github.com/shar3nda/avs-ihw1/tree/main/tests) — автоматически сгенерированные тесты для программы
 * [main](https://github.com/shar3nda/avs-ihw1/blob/main/main) — исполняемый файл программы
 * [main_opt](https://github.com/shar3nda/avs-ihw1/blob/main/main_opt) — исполняемый файл программы, скомпилированный с оптимизациями
+* [tests_unoptimized](https://github.com/shar3nda/avs-ihw1/blob/main/tests_unoptimized.log) — логи тестирования неоптимизированного бинарника
+* [tests_unoptimized](https://github.com/shar3nda/avs-ihw1/blob/main/tests_optimized.log) — логи тестирования оптимизированного бинарника
