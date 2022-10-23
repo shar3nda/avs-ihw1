@@ -1,7 +1,7 @@
 #!/bin/bash
-gcc -masm=intel ./main.c -S -o ./main.s
-gcc -masm=intel ./printArray.c -S -o ./printArray.s
-gcc -masm=intel ./readArray.c -S -o ./readArray.s
-gcc -masm=intel ./fillArray.c -S -o ./fillArray.s
+gcc ./main.c -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions -S -o ./asm/main_opt.s
+gcc ./printArray.c -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions -S -o ./asm/printArray_opt.s
+gcc ./readArray.c -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions -S -o ./asm/readArray_opt.s
+gcc ./fillArray.c -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions -S -o ./asm/fillArray_opt.s
 
-gcc main.s fillArray.s printArray.s readArray.s -o main
+gcc asm/main_opt.s asm/fillArray_opt.s asm/printArray_opt.s asm/readArray_opt.s -o main

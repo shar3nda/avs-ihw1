@@ -4,13 +4,8 @@
 	.globl	fillArray
 	.type	fillArray, @function
 fillArray:
-.LFB0:
-	.cfi_startproc
 	push	rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
 	mov	rbp, rsp
-	.cfi_def_cfa_register 6
 	mov	QWORD PTR -24[rbp], rdi
 	mov	QWORD PTR -32[rbp], rsi
 	mov	DWORD PTR -36[rbp], edx
@@ -40,10 +35,7 @@ fillArray:
 	nop
 	nop
 	pop	rbp
-	.cfi_def_cfa 7, 8
 	ret
-	.cfi_endproc
-.LFE0:
 	.size	fillArray, .-fillArray
 	.ident	"GCC: (GNU) 12.2.0"
 	.section	.note.GNU-stack,"",@progbits

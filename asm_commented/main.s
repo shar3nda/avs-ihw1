@@ -3,7 +3,7 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"%i"
+	.string	"%i"  # "%i" для scanf
 	.text
 	.globl	main
 	.type	main, @function
@@ -31,13 +31,13 @@ main:
 	xor	eax, eax
 	mov	rax, rsp
 	mov	rbx, rax
-	mov	DWORD PTR -100[rbp], 0
+	mov	DWORD PTR -100[rbp], 0  # int a_length = 0
 	lea	rax, -100[rbp]
-	mov	rsi, rax
+	mov	rsi, rax  # rsi = a_length
 	lea	rax, .LC0[rip]
-	mov	rdi, rax
+	mov	rdi, rax  # rdi = "%i"
 	mov	eax, 0
-	call	__isoc99_scanf@PLT
+	call	__isoc99_scanf@PLT  # scanf("%i", &a_length)
 	mov	eax, DWORD PTR -100[rbp]
 	movsx	rdx, eax
 	sub	rdx, 1
@@ -62,17 +62,17 @@ main:
 	add	rax, 3
 	shr	rax, 2
 	sal	rax, 2
-	mov	QWORD PTR -80[rbp], rax
+	mov	QWORD PTR -80[rbp], rax  # int a[a_length];
 	mov	edx, DWORD PTR -100[rbp]
 	mov	rax, QWORD PTR -80[rbp]
-	mov	esi, edx
-	mov	rdi, rax
+	mov	esi, edx  # rsi = a_length
+	mov	rdi, rax  # rdi = a
 	call	readArray@PLT
-	mov	DWORD PTR -96[rbp], eax
+	mov	DWORD PTR -96[rbp], eax  # int last_pos_index = readArray(a, a_length)
 	mov	eax, DWORD PTR -100[rbp]
 	sub	eax, DWORD PTR -96[rbp]
 	sub	eax, 1
-	mov	DWORD PTR -92[rbp], eax
+	mov	DWORD PTR -92[rbp], eax  # int b_length = a_length - last_pos_index - 1
 	mov	eax, DWORD PTR -92[rbp]
 	movsx	rdx, eax
 	sub	rdx, 1
@@ -97,18 +97,18 @@ main:
 	add	rax, 3
 	shr	rax, 2
 	sal	rax, 2
-	mov	QWORD PTR -64[rbp], rax
+	mov	QWORD PTR -64[rbp], rax  # int b[b_length]
 	mov	eax, DWORD PTR -96[rbp]
-	lea	ecx, 1[rax]
-	mov	edx, DWORD PTR -92[rbp]
-	mov	rsi, QWORD PTR -64[rbp]
+	lea	ecx, 1[rax]  # last_pos_index + 1
+	mov	edx, DWORD PTR -92[rbp]  # b_length
+	mov	rsi, QWORD PTR -64[rbp]  # b
 	mov	rax, QWORD PTR -80[rbp]
-	mov	rdi, rax
-	call	fillArray@PLT
+	mov	rdi, rax  # a
+	call	fillArray@PLT  # fillArray(a, b, b_length, last_pos_index + 1)
 	mov	edx, DWORD PTR -92[rbp]
 	mov	rax, QWORD PTR -64[rbp]
-	mov	esi, edx
-	mov	rdi, rax
+	mov	esi, edx  # b_length
+	mov	rdi, rax  # b
 	call	printArray@PLT
 	mov	eax, 0
 	mov	rsp, rbx
@@ -125,7 +125,7 @@ main:
 	pop	r15
 	pop	rbp
 	.cfi_def_cfa 7, 8
-	ret
+	ret  # return 0
 	.cfi_endproc
 .LFE0:
 	.size	main, .-main

@@ -8,13 +8,8 @@
 	.globl	printArray
 	.type	printArray, @function
 printArray:
-.LFB0:
-	.cfi_startproc
 	push	rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
 	mov	rbp, rsp
-	.cfi_def_cfa_register 6
 	sub	rsp, 32
 	mov	QWORD PTR -24[rbp], rdi
 	mov	DWORD PTR -28[rbp], esi
@@ -40,10 +35,7 @@ printArray:
 	nop
 	nop
 	leave
-	.cfi_def_cfa 7, 8
 	ret
-	.cfi_endproc
-.LFE0:
 	.size	printArray, .-printArray
 	.ident	"GCC: (GNU) 12.2.0"
 	.section	.note.GNU-stack,"",@progbits

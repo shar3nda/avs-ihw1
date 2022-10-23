@@ -11,11 +11,11 @@ fillArray:
 	.cfi_offset 6, -16
 	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	mov	QWORD PTR -24[rbp], rdi
-	mov	QWORD PTR -32[rbp], rsi
-	mov	DWORD PTR -36[rbp], edx
-	mov	DWORD PTR -40[rbp], ecx
-	mov	DWORD PTR -4[rbp], 0
+	mov	QWORD PTR -24[rbp], rdi  # int *a
+	mov	QWORD PTR -32[rbp], rsi  # int *b
+	mov	DWORD PTR -36[rbp], edx  # int length
+	mov	DWORD PTR -40[rbp], ecx  # int first_neg_ind
+	mov	DWORD PTR -4[rbp], 0 # i = 0
 	jmp	.L2
 .L3:
 	mov	edx, DWORD PTR -40[rbp]
@@ -24,19 +24,19 @@ fillArray:
 	cdqe
 	lea	rdx, 0[0+rax*4]
 	mov	rax, QWORD PTR -24[rbp]
-	add	rax, rdx
+	add	rax, rdx  # rax = *a + first_neg_ind + i
 	mov	edx, DWORD PTR -4[rbp]
 	movsx	rdx, edx
 	lea	rcx, 0[0+rdx*4]
 	mov	rdx, QWORD PTR -32[rbp]
-	add	rdx, rcx
+	add	rdx, rcx  # rdx = *b + i
 	mov	eax, DWORD PTR [rax]
-	mov	DWORD PTR [rdx], eax
-	add	DWORD PTR -4[rbp], 1
+	mov	DWORD PTR [rdx], eax  # b[i] = a[first_neg_ind + i]
+	add	DWORD PTR -4[rbp], 1  # ++i
 .L2:
 	mov	eax, DWORD PTR -4[rbp]
-	cmp	eax, DWORD PTR -36[rbp]
-	jl	.L3
+	cmp	eax, DWORD PTR -36[rbp]  # i ? length
+	jl	.L3  # if i < length continue
 	nop
 	nop
 	pop	rbp
