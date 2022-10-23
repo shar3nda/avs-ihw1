@@ -1,27 +1,23 @@
-	.file	"fillArray.c"
 	.intel_syntax noprefix
 	.text
-	.globl	fillArray
-	.type	fillArray, @function
+	.global	fillArray
 fillArray:
 	push	rbp
 	mov	rbp, rsp
-	mov	QWORD PTR -24[rbp], rdi
-	mov	QWORD PTR -32[rbp], rsi
-	mov	DWORD PTR -36[rbp], edx
-	mov	DWORD PTR -40[rbp], ecx
-	mov	DWORD PTR -4[rbp], 0
+	mov	QWORD PTR -24[rbp], rdi  # a
+	mov	QWORD PTR -32[rbp], rsi  # b
+	mov	DWORD PTR -36[rbp], edx  # length
+	mov	DWORD PTR -40[rbp], ecx  # first_neg_ind
+	mov	DWORD PTR -4[rbp], 0  # i
 	jmp	.L2
 .L3:
 	mov	edx, DWORD PTR -40[rbp]
 	mov	eax, DWORD PTR -4[rbp]
 	add	eax, edx
-	cdqe
 	lea	rdx, 0[0+rax*4]
 	mov	rax, QWORD PTR -24[rbp]
 	add	rax, rdx
 	mov	edx, DWORD PTR -4[rbp]
-	movsx	rdx, edx
 	lea	rcx, 0[0+rdx*4]
 	mov	rdx, QWORD PTR -32[rbp]
 	add	rdx, rcx
@@ -37,5 +33,3 @@ fillArray:
 	pop	rbp
 	ret
 	.size	fillArray, .-fillArray
-	.ident	"GCC: (GNU) 12.2.0"
-	.section	.note.GNU-stack,"",@progbits

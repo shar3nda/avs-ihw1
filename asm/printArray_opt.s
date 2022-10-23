@@ -1,12 +1,10 @@
-	.file	"printArray.c"
 	.intel_syntax noprefix
 	.text
 	.section	.rodata
 .LC0:
 	.string	"%i "
 	.text
-	.globl	printArray
-	.type	printArray, @function
+	.global	printArray
 printArray:
 	push	rbp
 	mov	rbp, rsp
@@ -37,5 +35,3 @@ printArray:
 	leave
 	ret
 	.size	printArray, .-printArray
-	.ident	"GCC: (GNU) 12.2.0"
-	.section	.note.GNU-stack,"",@progbits

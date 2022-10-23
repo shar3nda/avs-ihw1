@@ -1,12 +1,10 @@
-	.file	"main.c"
 	.intel_syntax noprefix
 	.text
 	.section	.rodata
 .LC0:
 	.string	"%i"
 	.text
-	.globl	main
-	.type	main, @function
+	.global	main
 main:
 	push	rbp
 	mov	rbp, rsp
@@ -108,5 +106,3 @@ main:
 	pop	rbp
 	ret
 	.size	main, .-main
-	.ident	"GCC: (GNU) 12.2.0"
-	.section	.note.GNU-stack,"",@progbits

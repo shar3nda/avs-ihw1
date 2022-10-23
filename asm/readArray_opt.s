@@ -1,12 +1,10 @@
-	.file	"readArray.c"
 	.intel_syntax noprefix
 	.text
 	.section	.rodata
 .LC0:
 	.string	"%i"
 	.text
-	.globl	readArray
-	.type	readArray, @function
+	.global	readArray
 readArray:
 	push	rbp
 	mov	rbp, rsp
@@ -53,5 +51,3 @@ readArray:
 	leave
 	ret
 	.size	readArray, .-readArray
-	.ident	"GCC: (GNU) 12.2.0"
-	.section	.note.GNU-stack,"",@progbits
