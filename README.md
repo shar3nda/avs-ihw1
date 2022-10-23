@@ -7,7 +7,7 @@
 
 ## Структура проекта
 * [asm](https://github.com/shar3nda/avs-ihw1/tree/main/asm) — код на ассемблере, полученный до и после оптимизаций (ручных и полученных через флаги компилятора).
-* [asm_commented](https://github.com/shar3nda/avs-ihw1/tree/main/asm_commented) — прокомментирванный код на ассемблере без флагов оптимизации
+* [asm_commented](https://github.com/shar3nda/avs-ihw1/tree/main/asm_commented) — код на ассемблере без флагов оптимизации, в котором **прокомментированы переменные** и операции над ними
 * [scripts](https://github.com/shar3nda/avs-ihw1/tree/main/scripts) — скрипты для тестирования
     * [generate_tests.py](https://github.com/shar3nda/avs-ihw1/blob/main/scripts/generate_tests.py) — утилита для генерации тестов на Python
     * [run_tests.sh](https://github.com/shar3nda/avs-ihw1/blob/main/scripts/run_tests.sh) — bash-скрипт для прогона тестов. Использование: `run_tests.sh ./<executable_name>`
@@ -16,6 +16,8 @@
 * [main_opt](https://github.com/shar3nda/avs-ihw1/blob/main/main_opt) — исполняемый файл программы, скомпилированный с оптимизациями
 * [tests_unoptimized.log](https://github.com/shar3nda/avs-ihw1/blob/main/tests_unoptimized.log) — логи тестирования неоптимизированного бинарника
 * [tests_optimized](https://github.com/shar3nda/avs-ihw1/blob/main/tests_optimized.log) — логи тестирования оптимизированного бинарника
+
+# Задания на 4 балла
 
 ## Использование программы
 * На первой строке вводится длина массива A.
@@ -60,3 +62,5 @@ gcc asm/main_opt.s asm/fillArray_opt.s asm/printArray_opt.s asm/readArray_opt.s 
 * Убраны ненужные присваивания через регистр `rax`:
     * `mov	eax, DWORD PTR [rax]; mov	esi, eax` -> `mov	esi, DWORD PTR [rax]`
     * `lea	rax, .LC0[rip]; mov	rdi, rax` -> `lea	rdi, .LC0[rip]`
+
+# Задания на 5 баллов
