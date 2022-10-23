@@ -3,7 +3,7 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"%i"
+	.string	"%i"  # "%i" для scanf
 	.text
 	.globl	readArray
 	.type	readArray, @function
