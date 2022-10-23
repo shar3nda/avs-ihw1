@@ -110,7 +110,7 @@ main:
 	mov	esi, edx  # b_length
 	mov	rdi, rax  # b
 	call	printArray@PLT
-	mov	eax, 0
+	mov	eax, 0  # 0 для return 0 в main
 	mov	rsp, rbx
 	mov	rdx, QWORD PTR -56[rbp]
 	sub	rdx, QWORD PTR fs:40
