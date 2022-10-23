@@ -2,7 +2,7 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"%i"
+	.string	"%i"  # "%i" для scanf
 	.text
 	.global	main
 main:
@@ -15,11 +15,11 @@ main:
 	push	rbx
 	sub	rsp, 88
 	mov	rbx, rsp
-	mov	DWORD PTR -92[rbp], 0
-	lea	rsi, -92[rbp]
-	lea	rdi, .LC0[rip]
+	mov	DWORD PTR -92[rbp], 0  # int a_length = 0
+	lea	rsi, -92[rbp]  # rsi = a_length
+	lea	rdi, .LC0[rip]  # rdi = "%i"
 	mov	eax, 0
-	call	__isoc99_scanf@PLT
+	call	__isoc99_scanf@PLT  # scanf("%i", &a_length)
 	mov	eax, DWORD PTR -92[rbp]
 	movsx	rdx, eax
 	sub	rdx, 1
@@ -43,17 +43,17 @@ main:
 	add	rax, 3
 	shr	rax, 2
 	sal	rax, 2
-	mov	QWORD PTR -64[rbp], rax
+	mov	QWORD PTR -64[rbp], rax  # int a[a_length];
 	mov	edx, DWORD PTR -92[rbp]
 	mov	rax, QWORD PTR -64[rbp]
-	mov	esi, edx
-	mov	rdi, rax
-	call	readArray@PLT
-	mov	DWORD PTR -68[rbp], eax
-	mov	eax, DWORD PTR -92[rbp]
-	sub	eax, DWORD PTR -68[rbp]
-	sub	eax, 1
-	mov	DWORD PTR -72[rbp], eax
+	mov	esi, edx  # esi = a_length
+	mov	rdi, rax  # rdi = a
+	call	readArray@PLT  # readArray(a, a_length)
+	mov	DWORD PTR -68[rbp], eax  # int last_pos_index = readArray(a, a_length)
+	mov	eax, DWORD PTR -92[rbp]  # b_length = a_length
+	sub	eax, DWORD PTR -68[rbp]  # b_length -= last_pos_index
+	sub	eax, 1  # b_length -= 1;
+	mov	DWORD PTR -72[rbp], eax  # b_length
 	mov	eax, DWORD PTR -72[rbp]
 	movsx	rdx, eax
 	sub	rdx, 1
@@ -78,17 +78,17 @@ main:
 	add	rax, 3
 	shr	rax, 2
 	sal	rax, 2
-	mov	QWORD PTR -88[rbp], rax
-	mov	eax, DWORD PTR -68[rbp]
-	lea	ecx, 1[rax]
-	mov	edx, DWORD PTR -72[rbp]
-	mov	rsi, QWORD PTR -88[rbp]
-	mov	rdi, QWORD PTR -64[rbp]
-	call	fillArray@PLT
-	mov	esi, DWORD PTR -72[rbp]
-	mov	rdi, QWORD PTR -88[rbp]
-	call	printArray@PLT
-	mov	eax, 0
+	mov	QWORD PTR -88[rbp], rax  # int b[b_length]
+	mov	eax, DWORD PTR -68[rbp]  # eax = last_pos_index
+	lea	ecx, 1[rax]  # ecx = last_pos_index + 1
+	mov	edx, DWORD PTR -72[rbp]  # edx = b_length
+	mov	rsi, QWORD PTR -88[rbp]  # rsi = b
+	mov	rdi, QWORD PTR -64[rbp]  # rdi = a
+	call	fillArray@PLT  # fillArray(a, b, b_length, last_pos_index + 1)
+	mov	esi, DWORD PTR -72[rbp]  # esi = b_length
+	mov	rdi, QWORD PTR -88[rbp]  # rdi = b
+	call	printArray@PLT  # printArray(b, b_length)
+	mov	eax, 0  # 0 для return 0
 	mov	rsp, rbx
 	lea	rsp, -40[rbp]
 	pop	rbx
@@ -97,5 +97,5 @@ main:
 	pop	r14
 	pop	r15
 	pop	rbp
-	ret
+	ret  # return 0
 	.size	main, .-main
