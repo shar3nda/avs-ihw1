@@ -12,6 +12,7 @@
     * [generate_tests.py](https://github.com/shar3nda/avs-ihw1/blob/main/scripts/generate_tests.py) — утилита для генерации тестов на Python
     * [run_tests.sh](https://github.com/shar3nda/avs-ihw1/blob/main/scripts/run_tests.sh) — bash-скрипт для прогона тестов. Использование: `run_tests.sh ./<executable_name>`
 * [tests](https://github.com/shar3nda/avs-ihw1/tree/main/tests) — автоматически сгенерированные тесты для программы
+    * В файле tests/{i}.in находятся входные данные для i-го теста, а в tests/{i}.out - корректные выходные данные. Непройденные тесты автоматически выводятся скриптом [run_tests.sh](https://github.com/shar3nda/avs-ihw1/blob/main/scripts/run_tests.sh) с помощью diff.
 * [main](https://github.com/shar3nda/avs-ihw1/blob/main/main) — исполняемый файл программы
 * [main_opt](https://github.com/shar3nda/avs-ihw1/blob/main/main_opt) — исполняемый файл программы, скомпилированный с оптимизациями
 * [tests_unoptimized.log](https://github.com/shar3nda/avs-ihw1/blob/main/tests_unoptimized.log) — логи тестирования неоптимизированного бинарника
