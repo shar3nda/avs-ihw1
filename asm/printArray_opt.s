@@ -11,10 +11,10 @@ printArray:
 	sub	rsp, 32
 	mov	QWORD PTR -24[rbp], rdi
 	mov	DWORD PTR -28[rbp], esi
-	mov	DWORD PTR -4[rbp], 0
+	mov	r15d, 0
 	jmp	.L2
 .L3:
-	mov	eax, DWORD PTR -4[rbp]
+	mov	eax, r15d
 	lea	rdx, 0[0+rax*4]
 	mov	rax, QWORD PTR -24[rbp]
 	add	rax, rdx
@@ -22,9 +22,9 @@ printArray:
 	lea	rdi, .LC0[rip]
 	mov	eax, 0
 	call	printf@PLT
-	add	DWORD PTR -4[rbp], 1
+	add	r15d, 1
 .L2:
-	mov	eax, DWORD PTR -4[rbp]
+	mov	eax, r15d
 	cmp	eax, DWORD PTR -28[rbp]
 	jl	.L3
 	nop
