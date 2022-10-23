@@ -92,7 +92,7 @@ gcc asm/main_opt.s asm/fillArray_opt.s asm/printArray_opt.s asm/readArray_opt.s 
 # Задания на 6 баллов
 
 ## Рефакторинг и комментарии к регистрам
-Локальные переменные в [fillArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/fillArray.c), [printArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/printArray.c), [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) убраны со стека и помещены в незатираемые регистры. Например, в `readArray` произведены следующие замены:
+Локальные переменные в [fillArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/fillArray.c), [printArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/printArray.c), [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) убраны со стека и помещены в незатираемые регистры. Например, в [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) произведены следующие замены:
 * `r13d = index = -1`
 * `r14d = last_pos_found = 0`
 * `r15d = i = 0`
