@@ -15,14 +15,11 @@ printArray:
 	jmp	.L2
 .L3:
 	mov	eax, DWORD PTR -4[rbp]
-	cdqe
 	lea	rdx, 0[0+rax*4]
 	mov	rax, QWORD PTR -24[rbp]
 	add	rax, rdx
-	mov	eax, DWORD PTR [rax]
-	mov	esi, eax
-	lea	rax, .LC0[rip]
-	mov	rdi, rax
+	mov	esi, DWORD PTR [rax]
+	lea	rdi, .LC0[rip]
 	mov	eax, 0
 	call	printf@PLT
 	add	DWORD PTR -4[rbp], 1

@@ -25,8 +25,8 @@ printArray:
 	cdqe
 	lea	rdx, 0[0+rax*4]
 	mov	rax, QWORD PTR -24[rbp]
-	add	rax, rdx  # rax = b[i]
-	mov	eax, DWORD PTR [rax]
+	add	rax, rdx
+	mov	eax, DWORD PTR [rax]  # eax = b[i]
 	mov	esi, eax
 	lea	rax, .LC0[rip]  # rax = "%i "
 	mov	rdi, rax

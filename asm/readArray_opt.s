@@ -29,7 +29,6 @@ readArray:
 	cmp	DWORD PTR -8[rbp], 0
 	jne	.L3
 	mov	eax, DWORD PTR -12[rbp]
-	cdqe
 	lea	rdx, 0[0+rax*4]
 	mov	rax, QWORD PTR -24[rbp]
 	add	rax, rdx
