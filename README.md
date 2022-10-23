@@ -17,6 +17,7 @@
 * [main_opt](https://github.com/shar3nda/avs-ihw1/blob/main/main_opt) — исполняемый файл программы, скомпилированный с оптимизациями
 * [tests_unoptimized.log](https://github.com/shar3nda/avs-ihw1/blob/main/tests_unoptimized.log) — логи тестирования неоптимизированного бинарника
 * [tests_optimized](https://github.com/shar3nda/avs-ihw1/blob/main/tests_optimized.log) — логи тестирования оптимизированного бинарника
+* [main.c](https://github.com/shar3nda/avs-ihw1/blob/main/main.c), [fillArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/fillArray.c), [printArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/printArray.c), [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) — исходные файлы на языке C
 
 # Задания на 4 балла
 
