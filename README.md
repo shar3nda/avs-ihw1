@@ -25,7 +25,7 @@
 * На вывод поступают элементы массива B.
 
 ## Результаты тестирования
-Логи тестирования находятся в файлах `tests_unoptimized.log` и `tests_optimized.log`. Чтобы самостоятельно провести тестирование, необходимо выполнить `./scripts/run_tests.sh ./main` или `./scripts/run_tests.sh ./main_opt`.
+Логи тестирования находятся в файлах [tests_unoptimized.log](https://github.com/shar3nda/avs-ihw1/blob/main/tests_unoptimized.log) и [tests_optimized.log](https://github.com/shar3nda/avs-ihw1/blob/main/tests_optimized.log). Чтобы самостоятельно провести тестирование, необходимо выполнить `./scripts/run_tests.sh ./main` или `./scripts/run_tests.sh ./main_opt`.
 
 ## Опции компиляции
 Ассемблирование без оптимизаций:
@@ -67,12 +67,12 @@ gcc asm/main_opt.s asm/fillArray_opt.s asm/printArray_opt.s asm/readArray_opt.s 
 
 ## Функции с параметрами
 В отдельных файлах реализованы следующие функции:
-* `int readArray(int *a, int length)` — считывает с `stdin` массив `a` и возвращает позицию последнего положительного элемента
-* `void fillArray(int *a, int *b, int length, int first_neg_ind)` — заполняет массив `b`
-* `void printArray(int *b, int length)` — печатает массив `b`
+* [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) — считывает с `stdin` массив `a` и возвращает позицию последнего положительного элемента
+* [fillArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/fillArray.c) — заполняет массив `b`
+* [printArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/printArray.c) — печатает массив `b`
 
 ## Локальные переменные
-В функциях используются локальные переменные, например, в `readArray` используются `int index` для хранения позиции последнего положительного элемента и `int last_pos_found` как флаг того, что положительные элементы в `a` закончились.
+В функциях используются локальные переменные, например, в [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) используются `int index` для хранения позиции последнего положительного элемента и `int last_pos_found` как флаг того, что положительные элементы в `a` закончились.
 
 ## Передача параметров и возвращаемые значения
 В [asm_commented](https://github.com/shar3nda/avs-ihw1/tree/main/asm_commented) комментариями отмечены передаваемые и возвращаемые значения в функциях.
@@ -87,7 +87,7 @@ gcc asm/main_opt.s asm/fillArray_opt.s asm/printArray_opt.s asm/readArray_opt.s 
 # Задания на 6 баллов
 
 ## Рефакторинг и комментарии к регистрам
-Локальные переменные в методах `fillArray`, `printArray`, `readArray` убраны со стека и помещены в незатираемые регистры. Например, в `readArray` произведены следующие замены:
+Локальные переменные в [fillArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/fillArray.c), [printArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/printArray.c), [readArray.c](https://github.com/shar3nda/avs-ihw1/blob/main/readArray.c) убраны со стека и помещены в незатираемые регистры. Например, в `readArray` произведены следующие замены:
 * `r13d = index = -1`
 * `r14d = last_pos_found = 0`
 * `r15d = i = 0`
